@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron" style="padding: 1rem .5rem;">
+        <div class="col-md-10 offset-md-2 col-sm-10">
+          <app-search></app-search>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Recently Updated Movies
+        </div>
+        <div class="list-group list-group-flush">
+          <div *ngFor='let item of movieList'>
+            <a class="list-group-item" routerLink="/videos/{{ item.showid}}">
+              <div class="media">
+                <img class="mr-3" height="48"
+                     [src]="item.poster | safe"
+                     alt="{{ item.showname }}">
+                <div class="media-body">
+                  {{ item.showname }}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Recently Updated Tv-Shows
+        </div>
+        <div class="list-group list-group-flush">
+          <div *ngFor='let item of tvList'>
+            <a class="list-group-item" routerLink="/videos/{{ item.showid}}">
+              <div class="media">
+                <img class="mr-3" height="48"
+                     [src]="item.poster | safe"
+                     alt="{{ item.showname }}">
+                <div class="media-body">
+                  {{ item.showname }}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          Favorites
+        </div>
+        <div class="list-group list-group-flush">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+

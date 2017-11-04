@@ -1,0 +1,120 @@
+<div *ngIf="video">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-md-12 text-center" style="padding-bottom: 1rem">
+            <h1>{{ video.title }}</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-5 justify-content-center">
+                <div class="card" style="width: 25rem!important;">
+                  <img class="card-img-top" [src]=" video.poster| safe " alt="Card image cap">
+                  <div class="card-body">
+                    <div class="card-text col-12">
+                      <span class="text-left">Year: {{ video.startyear }}</span>
+                      <span class="float-md-right">Rating: {{ video.rating }}</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7 justify-content-center">
+
+
+                <div class="card" style="max-height: 36rem;overflow-y: scroll;">
+                  <div class="card-body" *ngIf="isTV">
+                    <ng-template ngFor let-i="index" let-c="count" let-season [ngForOf]="SEASONS">
+                      <div class="card">
+                        <div class="card-header" (click)="season.id = !season.id">
+                          {{ season.title}}
+                        </div>
+                        <ul class="list-group list-group-flush" [collapse]="season.id">
+                          <ng-template ngFor let-episode [ngForOf]="season.episodes">
+
+                            <li class="list-group-item">{{episode.title}}</li>
+
+                          </ng-template>
+                        </ul>
+                      </div>
+                    </ng-template>
+
+                  </div>
+
+                  <div class="card-body" *ngIf="!isTV">
+                    <div class="card">
+                      <ul class="list-group list-group-flush">
+                        <ng-template ngFor let-episode [ngForOf]="video.posts">
+
+                          <li class="list-group-item">{{episode.title}}</li>
+
+                        </ng-template>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <!-- Video Deetz -->
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                Description
+              </div>
+              <div class="card-body">
+                <p class="card-text">{{ video.desc}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <!-- Video Recommendations -->
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                Recommendations
+              </div>
+              <div class="card-body">
+                <!-- Recommended loop-->
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <ng-template ngFor let-recommend [ngForOf]="recommended">
+                        <div class="col-md-6">
+                          <a routerLink="/videos/{{ recommend.showid}}">
+
+                            <div class="media">
+                              <div class="col-md-2">
+                                <img src="{{recommend.poster}}" alt="Generic placeholder image" height="50">
+                              </div>
+                              <div class="media-body">
+                                <h5 class="col-md-10">{{recommend.showname}}</h5>
+
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

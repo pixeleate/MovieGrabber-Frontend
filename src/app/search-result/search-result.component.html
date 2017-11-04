@@ -1,0 +1,30 @@
+<div *ngIf="query">
+<div class="row">
+  <div class="col-md-4 offset-md-4 text-center">
+  <p>Searched for <b>{{query}}</b></p>
+  </div>
+</div>
+  <div class="container">
+    <div class="row">
+      <ng-template ngFor let-i="index" let-c="count" let-item [ngForOf]="videoList">
+        <div class="col-3">
+          <div class="card" style="">
+            <a routerLink="/videos/{{ item.showid}}">
+              <img class="card-img-top" [src]="item.poster | safe" alt="{{ item.showname }}">
+              <div class="card-body">
+                <h4 class="card-title text-center">{{ item.showname }}</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center" *ngIf="!query">
+  <h1>Search </h1>
+  <app-search></app-search>
+</div>
+

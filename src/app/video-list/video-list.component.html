@@ -1,0 +1,22 @@
+<h1>
+  {{ title }} {{ todayDate | date: "short" }}
+</h1>
+
+<div class="container">
+  <div class="row">
+    <ng-template ngFor let-i="index" let-c="count" let-item [ngForOf]="videoList">
+      <div class="col-3">
+        <div class="card" style="">
+          <a routerLink="/videos/{{ item.showid}}">
+            <img class="card-img-top" [src]="item.poster | safe" alt="{{ item.showname }}">
+            <div class="card-body">
+              <h4 class="card-title text-center">{{ item.showname }}</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </ng-template>
+
+  </div>
+</div>

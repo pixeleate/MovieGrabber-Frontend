@@ -1,0 +1,73 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--  <h1>
+    Welcome to {{title}}!
+  </h1><br>
+<p>{{description}}</p>
+<hr />
+<app-video-list></app-video-list>-->
+
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLinkActive="active" routerLink=''>Srvup</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/videos/" >Videos</a>
+      </li>
+
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle">
+          Dropdown
+        </a>
+        <div *dropdownMenu class="dropdown-menu" role="menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+
+
+
+    </ul>
+    <app-search></app-search>
+  </div>
+</nav>-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="padding: .7rem 1rem">
+  <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler navbar-toggler-right" type="button" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink='' >Srvup</a>
+
+  <div [collapse]="!isCollapsed"
+       class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/videos/" >Videos</a>
+      </li>
+    </ul>
+    <app-search></app-search>
+
+  </div>
+</nav>
+
+
+<main role="main">
+  <div class="container main-container">
+    <router-outlet></router-outlet>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <hr />
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+  </div>
+</main>
+
