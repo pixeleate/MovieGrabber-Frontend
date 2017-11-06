@@ -11,6 +11,8 @@ export class AppComponent implements OnInit, OnDestroy {
   description = 'a new app';
   private routeSub: any;
   query: String;
+  isCollapsed = true;
+
 
 
   constructor(private route: ActivatedRoute) {

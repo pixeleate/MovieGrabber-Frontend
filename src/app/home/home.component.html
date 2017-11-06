@@ -21,7 +21,7 @@
               <div class="media">
                 <img class="mr-3" height="48"
                      [src]="item.poster | safe"
-                     alt="{{ item.showname }}">
+                     [alt]=" item.showname">
                 <div class="media-body">
                   {{ item.showname }}
                 </div>
@@ -43,7 +43,7 @@
               <div class="media">
                 <img class="mr-3" height="48"
                      [src]="item.poster | safe"
-                     alt="{{ item.showname }}">
+                     [alt]="item.showname">
                 <div class="media-body">
                   {{ item.showname }}
                 </div>

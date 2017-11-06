@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 
-const baseurl = 'https://moviegrabber.tv/api/';
+const baseurl = '/api/';
 
 @Injectable()
 export class VideoService {

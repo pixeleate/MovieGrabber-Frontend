@@ -25,7 +25,7 @@ export class Episode {
 export class VideoDetailComponent implements OnInit, OnDestroy {
   private routeSub: any;
   video: any;
-  recommended: any
+  recommended: any;
   streamlist: any;
   tvlist: any;
   isTV: boolean;
