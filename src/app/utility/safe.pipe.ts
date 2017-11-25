@@ -11,7 +11,9 @@ export class SafePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     if (value) {
-      return this.sanitizer.bypassSecurityTrustResourceUrl(value);
+      const re = /\+/gi;
+      const newstr = value.replace(re, '%20');
+      return this.sanitizer.bypassSecurityTrustResourceUrl(newstr);
     }
   }
 

@@ -1,0 +1,28 @@
+<div (click)="$event.preventDefault()">
+  <tabset>
+    <tab *ngFor="let tabz of tabs"
+         [heading]="tabz.name"
+         [active]="tabz.active"
+         (select)="tabz.active = true"
+         (deselect)="tabz.active = false">
+
+      <div *ngIf="tabz?.isgoogle; else elseBlock">
+        <app-google-file [file]="tabz?.link">
+
+        </app-google-file>
+      </div>
+      <ng-template #elseBlock>
+        <app-custom-player [url]="tabz?.link">
+
+        </app-custom-player>
+      </ng-template>
+    </tab>
+  </tabset>
+</div>
+
+
+
+<!--<app-custom-player [url]="item.link">
+
+</app-custom-player>
+-->

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import {Angulartics2Clicky} from 'angulartics2/clicky';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router, angulartics2Clicky: Angulartics2Clicky) {
   }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0)
+    });
     this.routeSub = this.route.params.subscribe(params => {
       this.query = params['q'];
     });

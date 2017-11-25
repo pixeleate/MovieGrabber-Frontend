@@ -18,7 +18,7 @@ export class VideoListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.todayDate = new Date();
-    this.req = this._video.list().subscribe(data => {
+    this.req = this._video.shortPopular().subscribe(data => {
       console.log(data);
       this.videoList = data.shows;
     });

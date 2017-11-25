@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 
-const baseurl = '/api/';
+const baseurl = '/backend/';
 
 @Injectable()
 export class VideoService {
@@ -13,7 +13,7 @@ export class VideoService {
 
   }
 
-  list() {
+  shortPopular() {
     const search = new URLSearchParams();
     search.set('type', 'movies');
     search.set('format', 'json');
@@ -23,7 +23,7 @@ export class VideoService {
       .catch(this.handleError);
   }
 
-  tvlist() {
+  shortPopularTV() {
     const search = new URLSearchParams();
     search.set('type', 'tvshow');
     search.set('format', 'json');
@@ -50,6 +50,23 @@ export class VideoService {
     search.set('format', 'json');
     const options = new RequestOptions({ params: search });
     return this._http.get(baseurl + 'media/getDetails', options)
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+  getLinks(id) {
+    const search = new URLSearchParams();
+    search.set('id', id);
+    search.set('format', 'json');
+    const options = new RequestOptions({ params: search });
+    return this._http.get(baseurl + 'media/getLinks', options)
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+  decodeGFile(file) {
+    const search = new URLSearchParams();
+    search.set('format', 'json');
+    const options = new RequestOptions({ params: search });
+    return this._http.get(baseurl + 'media/decodeGFile/' + file, options)
       .map(response => response.json())
       .catch(this.handleError);
   }

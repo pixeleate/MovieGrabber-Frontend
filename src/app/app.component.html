@@ -40,16 +40,17 @@
 </nav>-->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="padding: .7rem 1rem">
-  <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler navbar-toggler-right" type="button" aria-label="Toggle navigation">
+  <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler navbar-toggler-right" type="button"
+          aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" routerLink='' >MovieGrabber</a>
+  <a class="navbar-brand" routerLink=''>MovieGrabber</a>
 
-  <div [collapse]="!isCollapsed"
+  <div [collapse]="isCollapsed"
        class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" >
-        <a class="nav-link" routerLink="/videos/" >Videos</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/videos/">Videos</a>
       </li>
     </ul>
     <app-search></app-search>
@@ -64,8 +65,16 @@
 
     <footer class="footer">
       <div class="container text-center">
-        <hr />
-        <span class="text-muted">Place sticky footer content here.</span>
+        <hr/>
+        <form [action]="'https://www.paypal.com/cgi-bin/webscr' | safe"
+              method="post" target="_top">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="YW6HFFQSUWQJL">
+          <input type="image" [src]="'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif' | safe"
+                 border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <img alt="" border="0" [src]="'https://www.paypalobjects.com/en_US/i/scr/pixel.gif' | safe" width="1"
+               height="1">
+        </form>
       </div>
     </footer>
   </div>

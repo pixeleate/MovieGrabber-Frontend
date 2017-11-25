@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private _video: VideoService) { }
 
   ngOnInit() {
-    this.moviereq = this._video.list().subscribe(data => {
+    this.moviereq = this._video.shortPopular().subscribe(data => {
       console.log(data);
       this.movieList = data.shows;
     });
-    this.tvreq = this._video.tvlist().subscribe(data => {
+    this.tvreq = this._video.shortPopularTV().subscribe(data => {
       console.log(data);
       this.tvList = data.shows;
     });

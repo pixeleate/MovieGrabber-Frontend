@@ -11,7 +11,7 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-5 justify-content-center">
-                <div class="card" style="width: 25rem!important;">
+                <div class="card" style="">
                   <img class="card-img-top" [src]=" video.poster| safe " alt="Card image cap">
                   <div class="card-body">
                     <div class="card-text col-12">
@@ -35,7 +35,7 @@
                         <ul class="list-group list-group-flush" [collapse]="season.id">
                           <ng-template ngFor let-episode [ngForOf]="season.episodes">
 
-                            <li class="list-group-item">{{episode.title}}</li>
+                            <a routerLink="/videos/play/{{ episode.id }}" class="list-group-item">{{episode.title}}</a>
 
                           </ng-template>
                         </ul>
@@ -49,7 +49,7 @@
                       <ul class="list-group list-group-flush">
                         <ng-template ngFor let-episode [ngForOf]="video.posts">
 
-                          <li class="list-group-item">{{episode.title}}</li>
+                          <a routerLink="/videos/play/{{ episode.id }}" class="list-group-item">{{episode.title}}</a>
 
                         </ng-template>
                       </ul>
@@ -90,11 +90,11 @@
                   <div class="col-md-12">
                     <div class="row">
                       <ng-template ngFor let-recommend [ngForOf]="recommended">
-                        <div class="col-md-6">
+                        <div class="col-md-6" >
                           <a routerLink="/videos/{{ recommend.showid}}">
 
                             <div class="media">
-                              <div class="col-md-2">
+                              <div class="col-md-2" style="width: auto!important;">
                                 <img src="{{recommend.poster}}" alt="Generic placeholder image" height="50">
                               </div>
                               <div class="media-body">
